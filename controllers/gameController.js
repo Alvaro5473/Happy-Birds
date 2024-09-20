@@ -1,12 +1,6 @@
 const characterModel = require('../models/characterModel');
 const gameModel = require('../models/gameModel');
 
-// Mostrar la página de selección de personajes
-exports.select = (req, res) => {
-    const characters = characterModel.getAllCharacters();
-    res.render('characters/select', { characters });
-};
-
 // Manejar la selección de un personaje para el juego
 exports.chooseCharacter = (req, res) => {
     const gameState = gameModel.getGameState();

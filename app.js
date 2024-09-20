@@ -29,7 +29,6 @@ app.post('/characters/:id/delete', characterController.delete);
 
 // Game routes
 app.get('/game', gameController.view);
-app.get('/game/select', gameController.select);
 app.post('/game/select', gameController.chooseCharacter);
 app.put('/game/update', gameController.updateEnergy); 
 
