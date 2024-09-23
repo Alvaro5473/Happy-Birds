@@ -1,9 +1,11 @@
 <% if (character) { %>
+    <div class="sprite <%= character.species %>"></div>
     <h2><%= character.name %></h2>
-    <p id="energyLevel">Nivel de Energía: <%= character.energyLevel %> ⚡️</p>
+    <p id="life">❤️ <%= character.life %></p>
+    <p>⚔️ <%= character.attack %></p>
 
-    <button onclick="updateEnergy('feed')">Dar de Comer 🍔</button>
-    <button onclick="updateEnergy('play')">Jugar 😊</button>
+    <button onclick="updateEnergy('feed')">Dar de Comer 🍴</button>
+    <button onclick="updateEnergy('play')">Jugar 🎮</button>
 
     <script>
         function updateEnergy(action) {
@@ -17,7 +19,7 @@
             .then(response => response.json())
             .then(data => {
                 // Actualizar el nivel de energía en la interfaz
-                document.getElementById('energyLevel').innerText = 'Nivel de Energía: ' + data.energyLevel + ' ⚡️';
+                document.getElementById('life').innerText = '❤️ ' + data.life;
             })
             .catch(error => console.error('Error al actualizar:', error));
         }

@@ -14,8 +14,9 @@ exports.store = (req, res) => {
     const newCharacter = {
         id: characters.length + 1,
         name: req.body.name,
-        energyLevel: req.body.energyLevel,
-        lifeExpectancy: req.body.lifeExpectancy
+        species: req.body.species,
+        life: 100,
+        attack: 10
     };
     characters.push(newCharacter);
     characterModel.saveCharacters(characters);

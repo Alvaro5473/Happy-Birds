@@ -25,15 +25,15 @@ exports.updateEnergy = (req, res) => {
 
     switch (action) {
         case 'feed': // Dar de comer
-            character.energyLevel = Math.min(100, character.energyLevel + 10); // Aumentar el nivel de energía
+            character.life = Math.min(100, character.life + 10); // Aumentar el nivel de energía
             break;
         case 'play': // Jugar
-            character.energyLevel = Math.max(0, character.energyLevel - 10); // Reducir el nivel de energía
+            character.life = Math.max(0, character.life - 10); // Reducir el nivel de energía
             break;
         default:
             return res.status(400).json({ message: 'Acción no válida' });
     }
 
     characterModel.saveCharacter(character); // Guardar el estado actualizado del personaje
-    res.json({ energyLevel: character.energyLevel }); // Responder con el nuevo nivel de energía
+    res.json({ life: character.life }); // Responder con el nuevo nivel de energía
 };

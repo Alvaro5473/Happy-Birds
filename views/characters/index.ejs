@@ -3,6 +3,7 @@
 <ul>
     <% characters.forEach(character => { %>
         <article style="display: flex; flex-direction: column; align-items: center;">
+            <div class="sprite <%= character.species %>"></div>
             <b><%= character.name %></b><br>
             <form action="/game/select" method="post" style="display:inline;">
                 <input type="hidden" name="characterId" value="<%= character.id %>">

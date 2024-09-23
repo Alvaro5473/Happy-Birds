@@ -1,0 +1,24 @@
+{
+    "characters": [
+        {
+            "species": "duck",
+            "life": 0,
+            "attack": 0
+        },
+        {
+            "species": "parrot",
+            "life": 0,
+            "attack": 0
+        },
+        {
+            "species": "pigeon",
+            "life": 0,
+            "attack": 0
+        },
+        {
+            "species": "seagull",
+            "life": 0,
+            "attack": 0
+        }
+    ]
+}

@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Álvaro",
+    "species": "duck",
+    "life": 100,
+    "attack": 10
+  },
+  {
+    "id": 2,
+    "name": "Fernando Alonso",
+    "species": "pigeon",
+    "life": 100,
+    "attack": 10
+  },
+  {
+    "id": 3,
+    "name": "Prueba",
+    "species": "seagull",
+    "life": 100,
+    "attack": 10
+  }
+]
