@@ -7,4 +7,4 @@
 
 Install dependencies with `npm install`<br>
 Run project with `npm start`<br>
-Styles by <a href="https://simplecss.org/" target="_blank">simpleCSS</a>
+Styles by <a href="https://simplecss.org/">simpleCSS</a>
