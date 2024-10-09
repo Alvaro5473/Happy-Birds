@@ -24,10 +24,10 @@ exports.updateEnergy = (req, res) => {
     const action = req.body.action;
 
     switch (action) {
-        case 'feed': // Dar de comer
+        case 'increase':
             character.life = Math.min(100, character.life + 10); // Aumentar el nivel de energía
             break;
-        case 'play': // Jugar
+        case 'decrease':
             character.life = Math.max(0, character.life - 10); // Reducir el nivel de energía
             break;
         default:

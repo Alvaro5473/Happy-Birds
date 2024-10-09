@@ -1,0 +1,17 @@
+<% if (users.length != 0) { %>
+    <h2>Usuarios</h2>
+    <ul>
+        <% users.forEach(user => { %>
+            <article style="display: flex; flex-direction: column; ">
+                <b><%= user.name %></b>
+                <% if (user.isOnline) { %>
+                    <p>🟢 En línea</p>
+                <% } else { %>
+                    <p>🔴 Fuera de línea</p>
+                <% } %>
+            </article>
+        <% }); %>
+    </ul>
+    <% } else { %>
+        <p>No hay usuarios.</p>
+    <% } %>
