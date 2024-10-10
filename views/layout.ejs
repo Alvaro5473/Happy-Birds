@@ -10,11 +10,18 @@
 <body>
     <header>
     <h1>Happy Birds</h1>
+    <% if (username) { %>
+        <p>¡Hola, <%= username %>!</p>
+    <% } %>
         <nav>
             <a href="/game">🏠 Inicio</a>
             <a href="/characters">🐦 Pájaros</a>
             <a href="/users">👤 Usuarios</a>
-            <a href="/login">🚪 Iniciar sesión</a>
+            <% if (!username) { %>
+                <a href="/login">🚪 Iniciar sesión</a>
+            <% } else { %>
+                <a href="/logout">❌ Cerrar sesión</a>
+            <% } %>
         </nav>
     </header>
     <%- body %>
