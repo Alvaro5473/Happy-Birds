@@ -15,6 +15,7 @@ exports.store = (req, res) => {
         id: characters.length + 1,
         name: req.body.name,
         species: req.body.species,
+        owner: req.body.owner,
         life: 100,
         attack: 10
     };

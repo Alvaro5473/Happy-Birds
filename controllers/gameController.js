@@ -1,25 +1,39 @@
 const characterModel = require('../models/characterModel');
 const gameModel = require('../models/gameModel');
 
+// Middleware para verificar si el usuario está logueado
+exports.isAuthenticated = (req, res, next) => {
+    if (req.session && req.session.username) {
+        return next();
+    } else {
+        res.redirect('/login');
+    }
+};
+
+// Middleware para verificar si el usuario es el admin
+exports.isAdmin = (req, res, next) => {
+    if (req.session.username === 'admin') {
+        return next();
+    } else {
+        res.redirect('/game');
+    }
+};
+
 // Manejar la selección de un personaje para el juego
 exports.chooseCharacter = (req, res) => {
-    const gameState = gameModel.getGameState();
-    gameState.characterId = parseInt(req.body.characterId);
-    gameModel.saveGameState(gameState);
+    req.session.characterId = parseInt(req.body.characterId);
     res.redirect('/game');
 };
 
 // Mostrar la vista del juego
 exports.view = (req, res) => {
-    const gameState = gameModel.getGameState();
-    const character = characterModel.findCharacterById(gameState.characterId);
+    const character = characterModel.findCharacterById(req.session.characterId);
     res.render('game', { character });
 };
 
 // Actualizar el nivel de energía dinámicamente (REST API)
 exports.updateEnergy = (req, res) => {
-    const gameState = gameModel.getGameState();
-    const character = characterModel.findCharacterById(gameState.characterId);
+    const character = characterModel.findCharacterById(req.session.characterId);
 
     const action = req.body.action;
 
