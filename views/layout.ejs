@@ -14,6 +14,9 @@
         <p>¡Hola, <%= username %>!</p>
     <% } %>
         <nav>
+            <% if (username === "admin") { %>
+                <a href="/admin">⚙️ Panel de administrador</a>
+            <% } %>
             <a href="/game">🏠 Inicio</a>
             <a href="/characters">🐦 Pájaros</a>
             <a href="/users">👤 Usuarios</a>

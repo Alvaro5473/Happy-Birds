@@ -18,7 +18,13 @@ const findUserByName = (name) => {
     return users.find(user => user.name === name);
 };
 
-// Cambiar estado de conexión de usuario 
+// Buscar un usuario por su ID
+const findUserById = (id) => {
+    const users = getAllUsers();
+    return users.find(c => c.id === id);
+};
+
+// Cambiar estado de conexión de usuario
 const userOnline = (name, isOnline) => {
     let users = getAllUsers();
     const userIndex = users.findIndex(user => user.name === name);
@@ -28,4 +34,4 @@ const userOnline = (name, isOnline) => {
     }
 }
 
-module.exports = { getAllUsers, saveUsers, findUserByName, userOnline };
+module.exports = { getAllUsers, saveUsers, findUserByName, findUserById, userOnline };

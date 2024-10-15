@@ -5,6 +5,11 @@ exports.index = (req, res) => {
     res.render('users/index', { users });
 };
 
+exports.admin = (req, res) => {
+    const users = userModel.getAllUsers();
+    res.render('users/admin', { users })
+};
+
 exports.login = (req, res) => {
     res.render('users/login');
 };
@@ -47,4 +52,26 @@ exports.store = (req, res) => {
     users.push(newUser);
     userModel.saveUsers(users);
     res.redirect('/login');
+};
+
+exports.edit = (req, res) => {
+    const user = userModel.findUserById(parseInt(req.params.id));
+    res.render('users/edit', { user });
+};
+
+exports.update = (req, res) => {
+    let users = userModel.getAllUsers();
+    const userIndex = users.findIndex(c => c.id === parseInt(req.params.id));
+    if (userIndex >= 0) {
+        users[userIndex] = { ...users[userIndex], ...req.body };
+        userModel.saveUsers(users);
+    }
+    res.redirect('/admin');
+};
+
+exports.delete = (req, res) => {
+    let users = userModel.getAllUsers();
+    users = users.filter(user => user.id !== parseInt(req.params.id));
+    userModel.saveUsers(users);
+    res.redirect('/admin');
 };
