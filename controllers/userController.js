@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const userModel = require('../models/userModel');
 
 exports.index = (req, res) => {
@@ -14,17 +15,26 @@ exports.login = (req, res) => {
     res.render('users/login');
 };
 
-exports.logUser = (req, res) => {
+exports.logUser = async (req, res) => {
     const { name, password } = req.body;
     const user = userModel.findUserByName(name);
-    if (!user || password !== user.password) {
+
+    if (!user) {
         res.redirect('/login');
         return;
     }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+        res.redirect('/login');
+        return;
+    }
+
     userModel.userOnline(name, true);
     req.session.username = name;
     res.redirect('/game');
-}
+};
 
 exports.logout = (req, res) => {
     const name = req.session.username;
@@ -41,12 +51,13 @@ exports.create = (req, res) => {
     res.render('users/register');
 };
 
-exports.store = (req, res) => {
+exports.store = async (req, res) => {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const users = userModel.getAllUsers();
     const newUser = {
         id: users.length + 1,
         name: req.body.name,
-        password: req.body.password,
+        password: hashedPassword,
         isOnline: false
     };
     users.push(newUser);
