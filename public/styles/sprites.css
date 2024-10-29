@@ -5,6 +5,11 @@
     animation: play-sprite 0.5s steps(2) infinite; /* Animación de 1 segundo, con 2 pasos (frames) */
 }
 
+.small {
+    width: 100px;
+    height: 100px;
+}
+
 @keyframes play-sprite {
     from { background-position: 0 0; } /* Primer frame */
     to { background-position: 0 -200%; } /* Segundo frame */

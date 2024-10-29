@@ -46,6 +46,7 @@ app.post('/characters/:id/delete', gameController.isAuthenticated, characterCont
 app.get('/game', gameController.isAuthenticated, gameController.view);
 app.post('/game/select', gameController.isAuthenticated, gameController.chooseCharacter);
 app.put('/game/update', gameController.isAuthenticated, gameController.updateEnergy);
+app.get('/map', gameController.isAuthenticated, gameController.map);
 
 // Users routes
 app.get('/register', userController.create);

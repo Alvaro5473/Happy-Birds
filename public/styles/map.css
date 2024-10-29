@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
+}
+
+#viewport {
+    width: 700px;
+    height: 700px;
+    overflow: hidden;
+    position: relative;
+}
+
+#map {
+    position: absolute;
+    transform-origin: 0 0;
+    scale: 2;
+}
+
+#character {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+#name {
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    transform: translate(0, 105px);
+}

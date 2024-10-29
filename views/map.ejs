@@ -1,0 +1,16 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa</title>
+    <link rel="stylesheet" href="styles/map.css">
+    <link rel="stylesheet" href="styles/sprites.css">
+</head>
+<body>
+    <div id="viewport">
+        <img id="map" src="assets/map.gif" alt="Mapa" onload="initializeMap()">
+        <div id="character" class="sprite small <%= character.species %>">
+            <div id="name"><%= character.name %></div>
+        </div>
+    </div>
+    <script src="js/map.js"></script>
+</body>

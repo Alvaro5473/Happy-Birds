@@ -51,3 +51,8 @@ exports.updateEnergy = (req, res) => {
     characterModel.saveCharacter(character); // Guardar el estado actualizado del personaje
     res.json({ life: character.life }); // Responder con el nuevo nivel de energía
 };
+
+exports.map = (req, res) => {
+    const character = characterModel.findCharacterById(req.session.characterId);
+    res.render('map', {character, layout: false});
+};
