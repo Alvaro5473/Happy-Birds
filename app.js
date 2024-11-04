@@ -41,6 +41,7 @@ app.get('/characters/new', gameController.isAuthenticated, characterController.c
 app.get('/characters/:id/edit', gameController.isAuthenticated, characterController.edit);
 app.post('/characters/:id/update', gameController.isAuthenticated, characterController.update);
 app.post('/characters/:id/delete', gameController.isAuthenticated, characterController.delete);
+app.post('/characters/updatePosition', gameController.isAuthenticated, characterController.updatePosition);
 
 // Game routes
 app.get('/game', gameController.isAuthenticated, gameController.view);

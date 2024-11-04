@@ -19,14 +19,30 @@
     background-image: url('../assets/pigeon.png');
 }
 
+.pigeon.right {
+    background-image: url('../assets/pigeon-right.png');
+}
+
 .parrot {
     background-image: url('../assets/parrot.png');
+}
+
+.parrot.right {
+    background-image: url('../assets/parrot-right.png');
 }
 
 .seagull {
     background-image: url('../assets/seagull.png');
 }
 
+.seagull.right {
+    background-image: url('../assets/seagull-right.png');
+}
+
 .duck {
     background-image: url('../assets/duck.png');
+}
+
+.duck.right {
+    background-image: url('../assets/duck-right.png');
 }

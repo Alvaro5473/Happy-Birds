@@ -54,5 +54,6 @@ exports.updateEnergy = (req, res) => {
 
 exports.map = (req, res) => {
     const character = characterModel.findCharacterById(req.session.characterId);
-    res.render('map', {character, layout: false});
+    const characters = characterModel.getAllCharacters();
+    res.render('map', {character, characters, layout: false});
 };

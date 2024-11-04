@@ -1,31 +1,7 @@
 <% if (character) { %>
     <div class="sprite <%= character.species %>"></div>
     <h2><%= character.name %></h2>
-    <div style="display: flex;">
-        <p id="life">❤️ <%= character.life %></p>
-        <p>&emsp;⚔️ <%= character.attack %></p>
-    </div>
-
-    <button onclick="updateEnergy('increase')">Dar de Comer 🍴</button>
-    <button onclick="updateEnergy('decrease')">Jugar 🎮</button>
-
-    <script>
-        function updateEnergy(action) {
-            fetch('/game/update', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ action: action })
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Actualizar el nivel de energía en la interfaz
-                document.getElementById('life').innerText = '❤️ ' + data.life;
-            })
-            .catch(error => console.error('Error al actualizar:', error));
-        }
-    </script>
+    <a href="/map" class="button">Mapa</a>
 <% } else { %>
     <p>No hay ningún pájaro seleccionado.</p>
     <a class="button" href="/characters">Seleccionar pájaro</a>

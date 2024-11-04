@@ -16,8 +16,10 @@ exports.store = (req, res) => {
         name: req.body.name,
         species: req.body.species,
         owner: req.body.owner,
-        life: 100,
-        attack: 10
+        "position": {
+            "x": 0,
+            "y": 0
+        }
     };
     characters.push(newCharacter);
     characterModel.saveCharacters(characters);
@@ -45,3 +47,9 @@ exports.delete = (req, res) => {
     characterModel.saveCharacters(characters);
     res.redirect('/characters');
 };
+
+exports.updatePosition = (req, res) => {
+    const { id, x, y } = req.body;
+    characterModel.savePosition(parseInt(id), x, y);
+    res.json({ success: true });
+}

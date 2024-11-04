@@ -28,4 +28,12 @@ const saveCharacter = (updatedCharacter) => {
     }
 };
 
-module.exports = { getAllCharacters, saveCharacters, findCharacterById, saveCharacter };
+// Guardar la posición de un personaje
+const savePosition = (id, x, y) => {
+    const character = findCharacterById(id);
+    character.position.x = x;
+    character.position.y = y;
+    saveCharacter(character);
+}
+
+module.exports = { getAllCharacters, saveCharacters, findCharacterById, saveCharacter, savePosition };

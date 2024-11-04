@@ -4,5 +4,11 @@
     "name": "admin",
     "password": "$2b$10$1K/YNbhS2pu2P2NLKTEh2eokvOTUiv/5nBMlvKo69skiogLjheXwW",
     "isOnline": true
+  },
+  {
+    "id": 2,
+    "name": "Álvaro",
+    "password": "$2b$10$tViQseRcF9VWDnk18ExgLOk/eeH6jRt7.p7MZ07V1ey3uD.ToQhvm",
+    "isOnline": true
   }
 ]

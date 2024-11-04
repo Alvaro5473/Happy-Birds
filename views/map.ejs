@@ -7,10 +7,19 @@
 </head>
 <body>
     <div id="viewport">
-        <img id="map" src="assets/map.gif" alt="Mapa" onload="initializeMap()">
-        <div id="character" class="sprite small <%= character.species %>">
-            <div id="name"><%= character.name %></div>
+        <div id="character" class="sprite small <%= character.species %> right" data-id="<%= character.id %>" 
+            positionX="<%= character.position.x %>" 
+            positionY="<%= character.position.y %>">
+           <p class="name"><%= character.name %></p>
         </div>
+        <% characters.forEach(c => { %>
+            <% if (c.id !== character.id) { %>
+                <div class="sprite small <%= c.species %>"
+                    style="transform: translate(<%= c.position.x %>px, <%= c.position.y %>px);">
+                <p class="name"><%= c.name %></p>
+                </div>
+            <% } %>
+        <% }); %>
     </div>
     <script src="js/map.js"></script>
 </body>
