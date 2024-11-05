@@ -7,10 +7,11 @@
 </head>
 <body>
     <div id="viewport">
-        <div id="character" class="sprite small <%= character.species %> right" data-id="<%= character.id %>" 
-            positionX="<%= character.position.x %>" 
-            positionY="<%= character.position.y %>">
-           <p class="name"><%= character.name %></p>
+        <div id="character" class="sprite small <%= character.species %> right"
+            data-id="<%= character.id %>" 
+            data-position-x="<%= character.position.x %>" 
+            data-position-y="<%= character.position.y %>">
+            <p class="name"><%= character.name %></p>
         </div>
         <% characters.forEach(c => { %>
             <% if (c.id !== character.id) { %>

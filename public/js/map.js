@@ -2,9 +2,12 @@ const sprite = document.getElementById('character');
 const viewport = document.getElementById('viewport');
 const characterId = sprite.dataset.id;
 
-let posX = parseInt(sprite.dataset.positionX) || 0;
-let posY = parseInt(sprite.dataset.positionY) || 0;
+let posX = parseInt(sprite.dataset.positionX);
+let posY = parseInt(sprite.dataset.positionY);
 const spriteSpeed = 10;
+
+sprite.style.left = posX + 'px';
+sprite.style.top = posY + 'px';
 
 async function savePosition() {
   try {
