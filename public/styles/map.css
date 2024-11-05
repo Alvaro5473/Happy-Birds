@@ -4,8 +4,13 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #333;
+    background-color: #e3e3e3;
     font-family: system-ui;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: #333;
 }
 
 #viewport {
@@ -13,8 +18,13 @@ body {
     height: 700px;
     position: relative;
     overflow: hidden;
-    background-color: #333;
-    border: 1px solid #ccc;
+    background-image: url("../assets/day.png");
+    background-size: 100% 100%;
+    transition: background-image 0.3s ease;
+}
+
+body.dark-theme #viewport {
+    background-image: url("../assets/night.png");
 }
 
 #character {
@@ -28,4 +38,21 @@ body {
     transform: translateY(100px);
     display: flex;
     justify-content: center;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #888;
 }

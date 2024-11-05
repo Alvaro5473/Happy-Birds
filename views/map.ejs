@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles/sprites.css">
 </head>
 <body>
+    <button id="theme-toggle">Cambiar tema</button>
     <div id="viewport">
         <div id="character" class="sprite small <%= character.species %> right"
             data-id="<%= character.id %>" 
@@ -15,12 +16,20 @@
         </div>
         <% characters.forEach(c => { %>
             <% if (c.id !== character.id) { %>
-                <div class="sprite small <%= c.species %>"
-                    style="transform: translate(<%= c.position.x %>px, <%= c.position.y %>px);">
-                <p class="name"><%= c.name %></p>
+                <div class="sprite small <%= c.species %> right"
+                    style="transform: translate(<%= c.position.x%>px, <%= c.position.y - 15%>px);">
+                <p class="name" style="transform: translateY(115px);"><%= c.name %></p>
                 </div>
             <% } %>
         <% }); %>
     </div>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+        });
+    </script>
     <script src="js/map.js"></script>
 </body>
